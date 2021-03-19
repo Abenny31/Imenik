@@ -1,0 +1,20 @@
+<h1 mat-dialog-title><strong>{{action}} Imenik</strong></h1>
+<div mat-dialog-content>
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input placeholder="Ime" matInput [(ngModel)]="local_data.Ime">
+  </mat-form-field>
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input placeholder="Prezime" matInput [(ngModel)]="local_data.Prezime">
+  </mat-form-field>
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input placeholder="Broj" matInput [(ngModel)]="local_data.Broj">
+  </mat-form-field>
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input placeholder="Adresa" matInput [(ngModel)]="local_data.Adresa">
+  </mat-form-field>
+  <div *ngIf="action == 'Delete'">Sigurno zelite izbrisati? "{{local_data.Ime}}"?</div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="doAction()">{{action}}</button>
+  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Odustani</button>
+</div>
